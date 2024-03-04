@@ -1,6 +1,6 @@
 type Message = {
   Content: string;
-  User: User;
+  Sender: Sender;
 };
 
 export default Message;

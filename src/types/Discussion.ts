@@ -1,6 +1,6 @@
 import Message from "./Message";
 
 type Discussion = {
-  Conversation: Message[];
+  Messages: Message[];
 };
 export default Discussion;
