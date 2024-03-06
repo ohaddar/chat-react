@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./InputMessage.css";
 
 import Discussion from "../types/Discussion";
 import Message from "../types/Message";
