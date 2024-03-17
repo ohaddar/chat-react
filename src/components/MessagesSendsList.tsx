@@ -1,41 +1,11 @@
-import { useState } from "react";
-
 import Discussion from "../types/Discussion";
-import Message from "../types/Message";
 type inputMessageProps = {
   discussion: Discussion;
   showDots: boolean;
-  setShowDots: React.Dispatch<React.SetStateAction<boolean>>;
-  showBotMsg: boolean;
-  setShowBotMsg: React.Dispatch<React.SetStateAction<boolean>>;
-  dataSender: Message | undefined;
-  setDataSender: React.Dispatch<React.SetStateAction<Message | undefined>>;
 };
 
 const MessagesSendsList = (props: inputMessageProps) => {
-  const {
-    discussion,
-    showDots,
-    setShowDots,
-    showBotMsg,
-    setShowBotMsg,
-    dataSender,
-    setDataSender,
-  } = props;
-  const [randomMessageToMap, setRandomMessageToMap] = useState<string[]>([""]);
-  const getRandomMessage = (): string => {
-    const text: string[] = [
-      "Hello! How are you?",
-      "Just checking in. Anything new?",
-      "Hope you're having a great day!",
-      "Remember to take breaks and stay hydrated!",
-      "You're doing amazing! Keep it up!",
-    ];
-
-    const randomIndex = Math.floor(Math.random() * text.length);
-    return text[randomIndex];
-  };
-  const randomMessage = getRandomMessage();
+  const { discussion, showDots } = props;
 
   return (
     <div className="liste-container">
@@ -61,9 +31,5 @@ const MessagesSendsList = (props: inputMessageProps) => {
     </div>
   );
 };
+
 export default MessagesSendsList;
-//{showBotMsg && (
-//<div key={"kkl" + index} className="bot-msg ">
-//{getRandomMessage()}
-//</div>
-//)}
