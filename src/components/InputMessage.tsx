@@ -3,6 +3,7 @@ import SenIcon from "../assets/icons/send-icon.png";
 import Discussion from "../types/Discussion";
 import Message from "../types/Message";
 import { useEffect, useState } from "react";
+import userIcon from "../assets/icons/user-icon.png";
 
 type inputMessageProps = {
   discussion: Discussion;
@@ -24,7 +25,7 @@ const InputMessage = (props: inputMessageProps) => {
       Content: data.Content,
       Sender: {
         Name: "User",
-        Avatar: "/src/assets/icons/user-icon.png",
+        Avatar: userIcon,
       },
     };
 
