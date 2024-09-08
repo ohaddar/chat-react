@@ -12,14 +12,9 @@ type inputMessageProps = {
 };
 const InputMessage = (props: inputMessageProps) => {
   const { register, handleSubmit, reset } = useForm<Message>();
-  const {
-    discussion,
-    setDiscussion,
-
-    setShowDots,
-  } = props;
+  const { discussion, setDiscussion, setShowDots } = props;
   const [submitted, setSubmitted] = useState<boolean>(false);
-
+  const [userMessage, setUserMessage] = useState<string>("");
   const onSendMessage: SubmitHandler<Message> = (data) => {
     const UserMessage: Message = {
       Content: data.Content,
@@ -36,33 +31,44 @@ const InputMessage = (props: inputMessageProps) => {
     setDiscussion(disc);
     setShowDots(true);
     reset({ Content: "" });
-    console.log(UserMessage);
+    setUserMessage(data.Content);
 
     setSubmitted(true);
   };
-  const getRandomMessage = (): string => {
-    const text: string[] = [
-      "Hello! How are you?",
-      "Just checking in. Anything new?",
-      "Hope you're having a great day!",
-      "Remember to take breaks and stay hydrated!",
-      "You're doing amazing! Keep it up!",
-    ];
+  const getBotResponse = (input: string): string => {
+    const lowerInput = input.toLowerCase();
 
-    const randomIndex = Math.floor(Math.random() * text.length);
-    return text[randomIndex];
+    if (lowerInput.includes("hello") || lowerInput.includes("hi")) {
+      return " Hi there! How can I assist you today?";
+    }
+    if (lowerInput.includes("how are you")) {
+      return " I'm just a bot, but I'm doing great! How about you?";
+    }
+    if (lowerInput.includes("tell me about yourself")) {
+      return " I'm a simple chatbot designed to have a conversation with you. What do you want to talk about?";
+    }
+    if (lowerInput.includes("your name")) {
+      return " I don't have a specific name, but you can call me ChatBot.";
+    }
+    if (lowerInput.includes("joke")) {
+      return " Why don’t scientists trust atoms? Because they make up everything!";
+    }
+    if (lowerInput.includes("bye")) {
+      return " Goodbye! Have a great day!";
+    }
+    return ` Hmm, I'm not sure how to respond to "${input}" Can you ask me something else?`;
   };
 
   useEffect(() => {
     if (!submitted) return;
 
     const timer = setTimeout(() => {
-      const randomMessage = getRandomMessage();
+      const botRespone = getBotResponse(userMessage);
       const botMessage: Message = {
-        Content: randomMessage,
+        Content: botRespone,
         Sender: {
           Name: "Bot",
-          Avatar: "/src/assets/icons/user-icon.png",
+          Avatar: "/src/assets/icons/bot-icon.png",
         },
       };
       {

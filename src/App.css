@@ -5,12 +5,28 @@
   margin-top: 2rem;
   width: 40rem;
 }
-
 body {
+  background-image: url("./assets/icons/chat-bot.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-top: 93px;
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  animation: moveBackground 50s linear infinite;
 }
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
+
 .button {
   background: none;
   border-color: darkcyan;
@@ -98,11 +114,34 @@ body {
 }
 .sub-of-list-container {
   margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .content-interaction {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+  max-width: 80%;
+}
+
+.user-message {
+  justify-content: flex-end;
+  background-color: #e1f7d5;
+  padding: 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  align-self: flex-end;
+}
+
+.bot-message {
+  justify-content: flex-start;
+  background-color: #f3f3f3;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 10px;
+  align-self: flex-start;
 }
 .bot-msg {
   margin-bottom: 1rem;
@@ -143,4 +182,5 @@ body {
   white-space: nowrap;
   overflow: hidden;
   animation: dotAnimation 3s infinite;
+  background-color: #333;
 }

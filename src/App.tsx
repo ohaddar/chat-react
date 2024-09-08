@@ -3,7 +3,6 @@ import "./App.css";
 import InputMessage from "./components/InputMessage";
 import MessagesSendsList from "./components/MessagesSendsList";
 import Discussion from "./types/Discussion";
-
 function App() {
   const [discussion, setDiscussion] = useState<Discussion>({
     Messages: [],
