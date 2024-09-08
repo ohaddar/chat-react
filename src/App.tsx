@@ -7,16 +7,11 @@ function App() {
   const [discussion, setDiscussion] = useState<Discussion>({
     Messages: [],
   });
-  const [showDots, setShowDots] = useState<boolean>(true);
 
   return (
     <>
-      <MessagesSendsList discussion={discussion} showDots={showDots} />
-      <InputMessage
-        discussion={discussion}
-        setDiscussion={setDiscussion}
-        setShowDots={setShowDots}
-      />
+      <MessagesSendsList discussion={discussion} />
+      <InputMessage discussion={discussion} setDiscussion={setDiscussion} />
     </>
   );
 }

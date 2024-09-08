@@ -1,10 +1,12 @@
 #root {
   display: flex;
   flex-direction: column;
-  height: 90vh;
-  margin-top: 2rem;
+  height: 84vh;
+  margin-bottom: 18rem;
   width: 40rem;
+  position: fixed;
 }
+
 body {
   background-image: url("./assets/icons/chat-bot.jpg");
   background-size: cover;
@@ -124,6 +126,7 @@ body {
   margin-bottom: 1rem;
   align-items: flex-start;
   max-width: 80%;
+  background-color: #333;
 }
 
 .user-message {
