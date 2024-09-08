@@ -103,7 +103,7 @@ const InputMessage = (props: inputMessageProps) => {
         Content: botRespone,
         Sender: {
           Name: "Bot",
-          Avatar: "/assets/icons/bot-icon.png",
+          Avatar: "/assets/bot-icon.png",
         },
       };
       {
