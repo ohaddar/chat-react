@@ -87,7 +87,7 @@ const InputMessage = (props: inputMessageProps) => {
     if (lowerInput.includes("keys in react lists")) {
       return "Keys are used to uniquely identify elements in a list. They help React identify which items have changed, are added, or are removed, which improves performance when rendering lists.";
     }
-    if (lowerInput.includes("how to handle events in react")) {
+    if (lowerInput.includes("handle events in react")) {
       return "Events in React are handled using event handlers that are passed as props to elements. They are named using camelCase syntax, e.g., onClick for a click event, and are handled using functions.";
     }
 
@@ -103,7 +103,7 @@ const InputMessage = (props: inputMessageProps) => {
         Content: botRespone,
         Sender: {
           Name: "Bot",
-          Avatar: "/src/assets/icons/bot-icon.png",
+          Avatar: "/assets/icons/bot-icon.png",
         },
       };
       {
