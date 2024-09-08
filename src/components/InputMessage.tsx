@@ -4,6 +4,7 @@ import Discussion from "../types/Discussion";
 import Message from "../types/Message";
 import { useEffect, useState } from "react";
 import userIcon from "../assets/icons/user-icon.png";
+import botIcon from "../assets/icons/bot-icon.png";
 
 type inputMessageProps = {
   discussion: Discussion;
@@ -103,7 +104,7 @@ const InputMessage = (props: inputMessageProps) => {
         Content: botRespone,
         Sender: {
           Name: "Bot",
-          Avatar: "/assets/bot-icon.png",
+          Avatar: botIcon,
         },
       };
       {
