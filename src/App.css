@@ -1,9 +1,22 @@
+:root {
+  --primary-bg: #464545;
+  --primary-text: whitesmoke;
+  --primary-placeholder: #c0c0c0;
+
+  --secondary-bg: #a5a5a5;
+  --secondary-hover: #7b7979;
+  --secondary-active: #5a5a5a;
+  --secondary-text: #464545;
+
+  --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
 #root {
   display: flex;
   flex-direction: column;
   height: 84vh;
   margin-bottom: 18rem;
-  width: 40rem;
+  width: 51rem;
   position: fixed;
 }
 
@@ -28,12 +41,16 @@ body {
     background-position: 100% 100%;
   }
 }
-
 .button {
   background: none;
-  border-color: darkcyan;
-  border-radius: 100px;
+  border: none;
+  width: 14%;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.button:hover {
+  transform: scale(1.2);
 }
 
 .div-side {
@@ -47,12 +64,10 @@ body {
   border-radius: 50px;
 }
 .icon {
-  width: 50px;
-  height: 43px;
+  width: 68px;
+  height: 57px;
   margin-left: -10px;
-
   padding: 4px;
-
   cursor: pointer;
 }
 .input {
@@ -71,18 +86,17 @@ body {
   max-height: 100vh;
   flex: 1;
   overflow-y: auto;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+
   margin-bottom: 10px;
   display: flex;
   flex-direction: column-reverse;
 }
 
 .avatar-icon {
-  width: 27px;
-  height: 29px;
-  padding: 3px;
-  margin-bottom: 11px;
+  width: 36px;
+  height: 36px;
+  margin-right: 10px;
+  margin-top: -5px;
 }
 .user-name {
   font-weight: bolder;
@@ -92,21 +106,10 @@ body {
 .item-content {
   font-size: medium;
   font-family: "Courier New", Courier, monospace;
-  margin-left: 32px;
   word-wrap: break-word;
 }
 
 .input-group {
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 10px;
   padding: 10px;
 }
 .ul {
@@ -131,59 +134,88 @@ body {
 
 .user-message {
   justify-content: flex-end;
-  background-color: #e1f7d5;
+  background-color: var(--secondary-bg);
   padding: 10px;
   border-radius: 10px;
   margin-right: 10px;
   align-self: flex-end;
+  color: #0c0c0c;
 }
 
 .bot-message {
   justify-content: flex-start;
-  background-color: #f3f3f3;
-  padding: 10px;
+  background-color: var(--primary-bg);
   border-radius: 10px;
   margin-left: 10px;
   align-self: flex-start;
+  color: white;
 }
 .bot-msg {
   margin-bottom: 1rem;
   margin-right: 1rem;
 }
 .liste-sub-container {
-  margin-bottom: 3rem;
-}
-@keyframes dotAnimation {
-  0%,
-  20% {
-    content: "";
-    transform: translateY(0);
-  }
-  25%,
-  45% {
-    content: ".";
-    transform: translateY(3px);
-  }
-  50%,
-  70% {
-    content: "..";
-    transform: translateY(-5px);
-  }
-  75%,
-  95% {
-    content: "...";
-    transform: translateY(5px);
-  }
-  100% {
-    content: "";
-    transform: translateY(0);
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 15px 10px;
 }
 
-.dots-animation {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: dotAnimation 3s infinite;
-  background-color: #333;
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  background-color: var(--primary-bg);
+  border-radius: 75px;
+  color: var(--primary-text);
+}
+
+.input-bar {
+  width: 100%;
+  max-width: 800px;
+  border: none;
+  background-color: inherit;
+  font-size: 16px;
+  padding-left: 10px;
+  outline: none;
+  box-shadow: none;
+  color: inherit;
+}
+.input-bar::placeholder {
+  color: var(--primary-placeholder);
+  opacity: 1;
+}
+
+.send-button {
+  display: inline-grid;
+  justify-content: center;
+  align-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--secondary-bg);
+  color: var(--secondary-text);
+  border: none;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px var(--box-shadow);
+}
+
+.send-button:hover {
+  background-color: var(--secondary-hover);
+}
+
+.send-button:active {
+  background-color: var(--secondary-active);
+}
+
+.send-button svg {
+  width: 40px;
+  height: 40px;
+  top: 0;
+  fill: currentColor;
 }
