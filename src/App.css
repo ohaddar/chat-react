@@ -9,6 +9,10 @@
   --secondary-text: #464545;
 
   --box-shadow: rgba(0, 0, 0, 0.1);
+  --bot-bg-color: #6a0dad;
+  --bot-text-color: #ffffff;
+  --user-bg-color: #007fff;
+  --user-text-color: #ffffff;
 }
 
 #root {
@@ -29,8 +33,22 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-
+  margin: 0;
+  place-items: center;
   animation: moveBackground 50s linear infinite;
+  position: relative; /* Important pour le pseudo-élément */
+  z-index: 0; /* Assurer que le contenu reste au-dessus du pseudo-élément */
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 @keyframes moveBackground {
@@ -134,12 +152,12 @@ body {
 
 .user-message {
   justify-content: flex-end;
-  background-color: var(--secondary-bg);
   padding: 10px;
   border-radius: 10px;
   margin-right: 10px;
   align-self: flex-end;
-  color: #0c0c0c;
+  background-color: var(--user-bg-color);
+  color: var(--user-text-color);
 }
 
 .bot-message {
@@ -148,7 +166,8 @@ body {
   border-radius: 10px;
   margin-left: 10px;
   align-self: flex-start;
-  color: white;
+  background-color: var(--bot-bg-color);
+  color: var(--bot-text-color);
 }
 .bot-msg {
   margin-bottom: 1rem;

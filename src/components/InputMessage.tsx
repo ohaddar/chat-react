@@ -1,10 +1,7 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import SenIcon from "../assets/icons/send-icon.png";
 import Discussion from "../types/Discussion";
 import Message from "../types/Message";
 import { useEffect, useState } from "react";
-import userIcon from "../assets/icons/user-icon.png";
-import botIcon from "../assets/icons/bot-icon.png";
 
 type inputMessageProps = {
   discussion: Discussion;
@@ -15,14 +12,12 @@ const InputMessage = (props: inputMessageProps) => {
   const { discussion, setDiscussion } = props;
   const [submitted, setSubmitted] = useState<boolean>(false);
   const [userMessage, setUserMessage] = useState<string>("");
-  //  const [isBotTyping, setIsBotTyping] = useState<boolean>(false);
 
   const onSendMessage: SubmitHandler<Message> = (data) => {
     const UserMessage: Message = {
       Content: data.Content,
       Sender: {
         Name: "User",
-        Avatar: userIcon,
       },
     };
 
@@ -104,7 +99,6 @@ const InputMessage = (props: inputMessageProps) => {
         Content: botRespone,
         Sender: {
           Name: "Bot",
-          Avatar: botIcon,
         },
       };
       {
@@ -125,18 +119,17 @@ const InputMessage = (props: inputMessageProps) => {
 
   return (
     <form onSubmit={handleSubmit(onSendMessage)}>
-      <div className="input-group">
+      <div className="input-container">
         <input
           type="text"
-          className="form-control"
-          aria-label="Sizing example input"
-          aria-describedby="inputGroup-sizing-default"
-          placeholder="type your message here .."
+          className="input-bar"
+          placeholder="Enter your question here .."
           {...register("Content", { required: true })}
-        ></input>
-
-        <button type="submit" className="button">
-          <img src={SenIcon} className="icon" />
+        />
+        <button className="send-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13,5.586l-4.707,4.707c-0.391,0.391-0.391,1.023,0,1.414s1.023,0.391,1.414,0L12,9.414V17c0,0.552,0.447,1,1,1   s1-0.448,1-1V9.414l2.293,2.293C16.488,11.902,16.744,12,17,12s0.512-0.098,0.707-0.293c0.391-0.391,0.391-1.023,0-1.414L13,5.586z   " />
+          </svg>
         </button>
       </div>
     </form>

@@ -13,7 +13,6 @@ const MessagesSendsList = (props: inputMessageProps) => {
         <div className={`content-interaction ${"bot-message"}`}>
           <div className="liste-sub-container">
             <img src={chatbot} className="avatar-icon" alt="avatar" />
-            <span className="user-name">Bot</span>
             <br />
             <span className="item-content">
               Hello! How can I assist you with ReactJS today?
@@ -31,14 +30,9 @@ const MessagesSendsList = (props: inputMessageProps) => {
                 }`}
               >
                 <div className="liste-sub-container">
-                  <img
-                    src={item.Sender.Avatar}
-                    className="avatar-icon"
-                    alt="avatar"
-                  />
-                  <span className="user-name">{item.Sender.Name}</span>
-                  <br />
-
+                  {item.Sender.Name === "Bot" && (
+                    <img src={chatbot} className="avatar-icon" alt="avatar" />
+                  )}
                   <span className="item-content">{item.Content}</span>
                 </div>
               </div>
