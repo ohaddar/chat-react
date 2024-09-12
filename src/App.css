@@ -25,7 +25,7 @@
 }
 
 body {
-  background-image: url("./assets/icons/chat-bot.jpg");
+  background-image: url("./assets/icons/ai-generated.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -36,8 +36,8 @@ body {
   margin: 0;
   place-items: center;
   animation: moveBackground 50s linear infinite;
-  position: relative; /* Important pour le pseudo-élément */
-  z-index: 0; /* Assurer que le contenu reste au-dessus du pseudo-élément */
+  position: relative;
+  z-index: 0;
 }
 
 body::before {
@@ -156,8 +156,8 @@ body::before {
   border-radius: 10px;
   margin-right: 10px;
   align-self: flex-end;
-  background-color: var(--user-bg-color);
-  color: var(--user-text-color);
+  background-color: var(--secondary-bg);
+  color: black;
 }
 
 .bot-message {

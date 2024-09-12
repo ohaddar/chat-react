@@ -34,13 +34,23 @@ const InputMessage = (props: inputMessageProps) => {
   const getBotResponse = (input: string): string => {
     const lowerInput = input.toLowerCase();
 
+    for (const question of responses.questions) {
+      const followUpMatch = question.followUpQuestion?.keywords?.some(
+        (keyword: string) => lowerInput.includes(keyword)
+      );
+
+      if (followUpMatch) {
+        return question.followUpQuestion.response;
+      }
+    }
+
     const foundResponse = responses.questions.find((q) =>
       q.keywords.some((keyword: string) => lowerInput.includes(keyword))
     );
 
     if (foundResponse) {
-      const followUpSuggestions = foundResponse.followUpQuestion.question;
-
+      const followUpSuggestions =
+        foundResponse.followUpQuestion?.question || "";
       return `${foundResponse.response}\n\n${followUpSuggestions}`;
     } else {
       const clarifyingResponses = responses.clarifyingQuestions
